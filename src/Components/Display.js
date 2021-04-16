@@ -3,16 +3,16 @@ import { useState } from 'react';
 
 
 const Display = () => {
-    const [text,setText]=useState({value:"Here.", color:"#fff",size:40})
+    const [text,setText]=useState({value:"Here.", color:"#fff",size:24})
     const [bg,setBg]=useState({color:"#000",width:1080,height:1080})
     const sizes={coverPhoto : [1500,500], highligths:[1080,1920],sqaures : [1080,1080]} //width x hieght
 
-     function saveImage() {
+     function saveImage(output) {
         const post = document.querySelector('#post');
-        html2canvas(post,{scale:3}).then(canvas => {
+        html2canvas(post,{scale:4}).then(canvas => {
             const url = canvas.toDataURL();
             const download = document.createElement('a');
-            download.download = 'image.png';
+            download.download = `${output.slice(0,5)}....png`;
             download.href = url;
             download.click();
 
@@ -44,7 +44,7 @@ const Display = () => {
                         <button onClick={()=>setBg({...bg , width:sizes.sqaures[0] , height: sizes.sqaures[1]})}>squares</button>
                     </div>
                     </div>
-                    <button onClick={saveImage}>Save</button>
+                    <button onClick={()=>saveImage(text.value)}>Save</button>
                 </div>
             </div>
         <div className="display" id="post" style={{ backgroundColor: bg.color , height:`${bg.height/4}px`, width: `${bg.width/4}px` }}>
