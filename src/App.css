@@ -1,9 +1,11 @@
 *{
   margin: 0;
   padding: 0;
-  
-}
 
+}
+.react-icons {
+  vertical-align: middle;
+}
 .displaygrid{
   display: grid;
   grid-column: 2;
@@ -26,6 +28,7 @@
   
 }
   
+
 
 @font-face {
   font-family: Noe;
