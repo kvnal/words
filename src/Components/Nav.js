@@ -1,6 +1,6 @@
 const Navbar = () => {
     return ( 
-        <div className="navbar">
+        <div className="shadow-md navbar">
             <h1>Words Here.</h1>
         </div>
      );
